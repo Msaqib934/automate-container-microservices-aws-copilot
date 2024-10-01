@@ -13,9 +13,9 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 # Copy static assets from builder stage
 COPY backend.conf.template  /etc/nginx/templates/backend.conf.template
-RUN rm /etc/nginx/nginx.conf   #added
-RUN rm /etc/nginx/conf.d/default.conf   #added
-COPY nginx.conf /etc/nginx/  #added
+RUN rm /etc/nginx/nginx.conf
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/
 COPY --from=builder /webapp/build .
 RUN chmod -R 777 .
 EXPOSE 80
