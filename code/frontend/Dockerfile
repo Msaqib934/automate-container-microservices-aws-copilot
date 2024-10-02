@@ -14,8 +14,8 @@ RUN rm -rf ./*
 # Copy static assets from builder stage
 #COPY backend.conf.template  /etc/nginx/templates/backend.conf.template
 #RUN rm /etc/nginx/nginx.conf
-#RUN rm /etc/nginx/conf.d/default.conf
-#COPY nginx.conf /etc/nginx/
+RUN rm /etc/nginx/conf.d/default.conf
+COPY default.conf /etc/nginx/conf.d/
 COPY --from=builder /webapp/build .
 RUN chmod -R 777 .
 EXPOSE 80
