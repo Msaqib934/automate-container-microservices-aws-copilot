@@ -12,7 +12,7 @@ WORKDIR /usr/share/nginx/html
 # Remove default nginx static assets
 RUN rm -rf ./*
 # Copy static assets from builder stage
-COPY backend.conf.template  /etc/nginx/templates/backend.conf.template
+#COPY backend.conf.template  /etc/nginx/templates/backend.conf.template
 RUN rm /etc/nginx/nginx.conf
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/
